@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>網頁練習-1:楽芸工房</title>
+        <!--https://rakugei.jp/#pageTop-->
+        <meta charset="UTF-8">
+        <meta name="viewpoint" content="width=device-width, initial-scale=1.0"> <!--做RWD用的-->
+        <!--
+        格式偵測，有時候網頁會自動將一串數字、文字等家入鍊接，但我們不想要就可以用這行來去除
+        寫法：<meta name="format-detection" content=""> 
+        meta name=“format- detection” content=“telephone=no” 禁止了把數字轉化為撥號鏈接
+        meta name=“format-detection” content=“email=no” 禁止作為郵箱地址
+        meta name=“format-detection” content=“adress=no” 禁止跳轉至地圖
+        -->
+        <meta name="description" content="今天的練習是模仿 楽芸工房 的網站，並且修改其中的內容。"><!--描述網頁用，有助於SEO搜尋-->
+        <!--
+            OG：社交媒體用。通常在FB、IG等平台上會有推薦的其他廣頁，而OG就是用來優化這個的，
+            其所規格化定義的 HTML Meta 屬性提供網頁的標題、縮圖、描述等等資訊，讓網頁能以更完美的形式呈現在各平台之中。
+            公式：<meta property="" content="">
+            常見：
+            og:url content="https://example.com/page.html" //網址
+            og:type content="website" //OG的形式
+            og:title content="Content Title" //標題
+            og:image content="https://example.com/image.jpg" //縮圖
+            og:description content="Description Here" //描述
+            og:locale content="en_US" //地區
+            article:author content="" //作者
+            參考文章：
+            https://blog.poychang.net/how-to-use-html-head/
+            https://www.hellosanta.com.tw/knowledge/category-13/post-69
+        -->
+        <!--接下來他引入了好幾行CSS格式-->
+        <!--Async是讓Script可以延遲而不會讓他在DOM解析前下載造成混亂的用法；Script的src功能一樣是引入外部URL，在這邊可以視為假設有個腳本會用好幾次就可以這樣引入-->
+        <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-H7KRSXW10E"></script> 
+        <script> //這也是配合GTM衍生的script
+            window.dataLayer = window.dataLayer || []; 
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-H7KRSXW10E');
+        </script>
+    </head>
+
+    <body class="index" id="pageTop">
+        <!--
+            div 標籤主要是區塊級標籤，主要配合 CSS 做格式化
+            class vs id 屬性：id 屬性是唯一、不可重複的，就像身分證；class則相反，是可以重複利用的，可以將同一群組、類別進行設定
+        -->
+        <header class="header-firstview scroll-initial">
+            <div class="header-wrapper">
+                <div class="header-fixed">
+                    <div class="header-fixed-inner">
+                        <div class="header-row left"> <!--左邊的圖片-->
+                            <h1 class="header-logo">
+                                <a href="#pageTop">
+                                    <img src="img/pets.png" alt="Neko House" width="120" height="120">
+                                </a>
+                            </h1>
+                        </div>
+                        <div class="right">
+                            <nav class="header-navi-wrapper pc">
+                                <ul class="header-navi bottom not-common">
+                                    <li class="item"><a class="link font-en navi1" href="#introduce">INTRO</a></li>
+                                    <li class="item"><a class="link font-en navi2" href="#members">MEMBERS</a></li>
+                                    <li class="item"><a class="link font-en navi3" href="#events">EVENTS</a></li>
+                                    <li class="item"><a class="link font-en navi4" href="#contact">CONTACT</a></li>
+                                    <li class="item official"><a class="link font-en" target="_blank" rel="noopener" href="https://bang-dream.com/">OFFICIAL WEB</a></li>
+                                    <!--加入rel=noopener是為了防止原視窗被新視窗影響-->
+                                </ul>
+                            </nav>
+                            <button class="sp-menu-button sp" id="firstviewSwitch">
+                                <div class="inner">
+                                    <span class="line line1"></span>
+                                    <span class="line line2"></span>
+                                    <span class="line line3"></span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <header class="header" id="header">
+            <div class="header-wrapper">
+                <div class="header-fixed">
+                    <div class="header-fixed-inner">
+                        <div class="header-row left">
+                            <h1 class="header-logo black"><a href="#pageTop"><img src="img/Logo-1.png" alt="NEKO HOUSE" width="240" height="54"></a></h1>
+                            <h1 class="header-logo white"><a href="#pageTop"><img src="img/Logo-2.png" alt="NEKO HOUSE" width="240" height="54"></a></h1>
+                        </div>
+                        <div class="right"> <!--這邊是下拉之後的漢堡選單，雖然跟上面基本上一樣-->
+                            <nav id="" class="header-navi-wrapper pc"> <!--這邊多了id-->
+                                <ul class="header-navi bottom not-common">
+                                    <li class="item"><a class="link font-en navi1" href="#introduce">INTRO</a></li>
+                                    <li class="item"><a class="link font-en navi2" href="#members">MEMBERS</a></li>
+                                    <li class="item"><a class="link font-en navi3" href="#events">EVENTS</a></li>
+                                    <li class="item"><a class="link font-en navi4" href="#contact">CONTACT</a></li>
+                                    <li class="item official"><a class="link font-en" target="_blank" rel="noopener" href="https://bang-dream.com/">OFFICIAL WEB</a></li>
+                                </ul>
+                            </nav>
+                            <button class="sp-menu-button sp" id="switch"> <!--這邊的id=switch-->
+                                <div class="inner">
+                                    <span class="line line1"></span>
+                                    <span class="line line2"></span>
+                                    <span class="line line3"></span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <nav id="menu-back" class="sp-menu"> <!--這個區塊是漢堡選單點進去之後會顯示的內容-->
+                    <div class="sp-menu-wrapper layer">
+                        <div class="sp-menu-inner">
+                            <div class="block-wrapper">
+                                <div class="navi-top">
+                                    <ul class="header-nave not-common">
+                                        <li class="item"><a class="link font-en navi0" href="#pageTop">TOP</a></li>
+                                        <li class="item"><a class="link font-en navi1" href="#introduce">INTRO</a></li>
+                                        <li class="item"><a class="link font-en navi2" href="#members">MEMBERS</a></li>
+                                        <li class="item"><a class="link font-en navi3" href="#events">EVENTS</a></li>
+                                        <li class="item"><a class="link font-en navi4" href="#contact">CONTACT</a></li>
+                                        <li class="item official"><a class="link font-en" target="_blank" rel="noopener" href="https://bang-dream.com/">OFFICIAL WEB</a></li>
+                                    </ul>
+                                </div>
+                                <!--原頁面這裡有footer-block會顯示另一個應該是工作室的懸浮連結，這邊就不做了-->
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!--main-->
+        <div id="load">
+            <div class="inner"></div>
+        </div>
+        <!--
+            說明：https://shoujhengduan.medium.com/html-section-%E7%9A%84%E7%94%A8%E6%B3%95-15a171cc1350
+            就單純功能上來看， section和 div 蠻像的，它本身是獨立的一塊內容，
+            但又不能作為唯一的內容出現在頁面上，但 section 有文檔上的涵義，所以盡量避免濫用。
+        -->
+        <section class="section mainv"> <!--這塊是在實現它上面的幻燈片效果-->
+            <div class="mainv-wrapper">
+                <div class="mainv-inner">
+                    <ul class="mainv-img not-common pc">
+                        <li class="item1 item" style="background-image:url(img/main-01.jpg)"></li>
+                        <li class="item2 item" style="background-image:url(img/main-02.jfif)"></li>
+                        <li class="item3 item" style="background-image:url(img/main-03.jpeg)"></li>
+                    </ul>
+                    <ul class="mainv-img not-common sp">
+                        <li class="item1 item" style="background-image:url(img/main-01.jpg)"></li>
+                        <li class="item2 item" style="background-image:url(img/main-02.jfif)"></li>
+                        <li class="item3 item" style="background-image:url(img/main-03.jpeg)"></li>
+                    </ul>
+                    <p class="slick-num"><!--這是幻燈片右下角顯示現在是哪一張的小標!-->
+                        <span class="inner">
+                            <span class="font-en nowcnt">01</span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="main-contents">
+            
+        </section>
+        <!--/main-->
+        <!--
+            在典型情況下，該元素會包含文檔創作者的姓名、文檔的版權信息、使用條款的鏈接、聯繫信息等等。
+            在一個文檔中，您可以定義多個 <footer> 元素。
+            基本上就是最下面的那一小行(wix裡面也有)
+        -->
+        <footer class="footer"></footer>
+        <!--下面是JS的腳本，但不確定是開源可以下載還是他們自己寫的-->
+    </body>
+</html>
